@@ -34,7 +34,8 @@ components{
                 console-sign="$"
                 allow-arbitrary
                 height="500px"
-                @command="onCliCommand"></VueTerminal>
+                @command="onCliCommand"
+                write="some text"></VueTerminal>
 ```
 
 ## Properties & Events
@@ -45,6 +46,7 @@ components{
 - `console-sign`(String) - starting symbol for each command line, eg. `my-folder/master $` or just `>>`;
 - `allow-arbitrary`(Boolean) - allow type any command in addition to basic ones, then `@command` will be called;
 - `height`(String) - UI block height, eg. `500px`;
+- `write`(String) - Write text into console when `write` param change;
 
 *event*
 

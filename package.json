@@ -56,18 +56,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shershen08/vue-terminal-ui.git"
+    "url": "git+https://github.com/jeriveromartinez/vue-terminal-ui.git"
   },
-  "author": "Mikhail Kuznetcov",
+  "author": "Julio Rivero",
   "bugs": {
-    "url": "https://github.com/shershen08/vue-terminal-ui/issues"
+    "url": "https://github.com/jeriveromartinez/vue-terminal-ui/issues"
   },
-  "homepage": "https://github.com/shershen08/vue-terminal-ui",
+  "homepage": "https://github.com/jeriveromartinez/vue-terminal-ui",
   "keywords": [
     "vue",
     "vuejs",
     "terminal",
-    "component"
+    "component",
+    "write"
   ],
   "license": "MIT",
   "browserslist": [
