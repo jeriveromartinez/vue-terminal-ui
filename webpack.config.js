@@ -1,7 +1,7 @@
 const UglifyEsPlugin = require('uglify-es-webpack-plugin');
 const webpack = require('webpack');
 
-const libraryName = 'vue-terminal-ui';
+const libraryName = 'vue-terminal-unix';
 const buildTarget = process.env.TARGET === 'window' ? 'window' : 'umd';
 const outputFile = `${libraryName}-${buildTarget}.js`;
 
@@ -9,7 +9,7 @@ module.exports = {
      entry: './index.js',
         output: {
             path: __dirname,
-            filename: 'dist/vue-terminal-ui.js',
+            filename: 'dist/vue-terminal-unix.js',
         },
      module: {
          loaders: [
@@ -35,7 +35,7 @@ module.exports = {
     plugins: [
         new UglifyEsPlugin(),
         new webpack.BannerPlugin({
-            banner: "Vue.js Terminal UI emulator \n https://github.com/shershen08/vue-terminal-ui/ \n file:[file]"
+            banner: "Vue.js Terminal UI emulator \n https://github.com/jeriveromartinez/vue-terminal-unix/ \n file:[file]"
         })
     ]
  }

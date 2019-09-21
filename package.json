@@ -1,6 +1,6 @@
 {
   "name": "vue-terminal-unix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "terminal UI for VueJs",
   "main": "index.js",
   "scripts": {
@@ -56,13 +56,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jeriveromartinez/vue-terminal-ui.git"
+    "url": "git+https://github.com/jeriveromartinez/vue-terminal-unix.git"
   },
   "author": "Julio Rivero",
   "bugs": {
-    "url": "https://github.com/jeriveromartinez/vue-terminal-ui/issues"
+    "url": "https://github.com/jeriveromartinez/vue-terminal-unix/issues"
   },
-  "homepage": "https://github.com/jeriveromartinez/vue-terminal-ui",
+  "homepage": "https://github.com/jeriveromartinez/vue-terminal-unix",
   "keywords": [
     "vue",
     "vuejs",

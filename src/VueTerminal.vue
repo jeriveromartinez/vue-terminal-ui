@@ -34,7 +34,7 @@
             toggleWaiting() {
                 this.waiting = !this.waiting
             },
-            commandEmitter = (commandText) => {
+            commandEmitter (commandText) {
                 const prms = new Promise((resolve, reject) => {
                     const data = { text: commandText }
                     this.$emit('command', data, resolve, reject)
