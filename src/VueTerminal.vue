@@ -28,11 +28,15 @@
             allowArbitrary: { type: Boolean, default: false },
             fullScreen: { type: Boolean, default: false },
             consoleSign: { type: String, default: '$' },
-            write: { type: String, default: '' }
+            write: { type: String, default: '' },
+            show:{type:Boolean, default:false}
         },
         methods: {
             toggleWaiting() {
-                this.waiting = !this.waiting
+                this.waiting = !this.waiting;
+            },
+            toggleShow(){
+                this.show = !this.show;
             },
             commandEmitter (commandText) {
                 const prms = new Promise((resolve, reject) => {
@@ -43,14 +47,9 @@
 
                 prms.finally(this.toggleWaiting)
                 return prms
-            }
-        },
-        watch: {
-            write(value) {
-                if (this.ptty) this.ptty.echo(value);
-            }
-        },
-        mounted() {
+            },
+
+            create() {
             this.ptty = $('#terminal', '.vue-terminal-wrapper').Ptty({
                 i18n: { welcome: this.intro },
                 ps: this.consoleSign,
@@ -66,6 +65,16 @@
                 },
                 help: 'A demo command.'
             });
+        }
+        },
+        watch: {
+            write(value) {
+                if (this.ptty) this.ptty.echo(value);
+            },
+            show(value){
+                if(value) this.create();
+                else this.ptty=null;
+            }
         }
     }
 </script>
