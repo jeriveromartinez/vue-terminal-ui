@@ -265,7 +265,7 @@ import jQuery from 'jquery'
             **/
             _public.echo = function (out_str, no_scroll) {
                 if (out_str) {
-                    const lines = out_str.split('\r\n');
+                    const lines = out_str.trim().replace(/ /g, '&nbsp;').split('\r\n');
                     for (const line of lines) {
                         el.find('.content').append('<div><div class="cmd_out">' + line + '</div></div>');
                     }
