@@ -533,7 +533,7 @@ import jQuery from 'jquery'
                 if (typeof direct_cmd !== 'undefined') {
                     cmd = direct_cmd;
                 } else {
-                    cmd = input.text();
+                    cmd = input.text() || '\r';
                 }
 
                 tab_comp = settings.autocomplete;
