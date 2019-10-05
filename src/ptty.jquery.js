@@ -265,8 +265,10 @@ import jQuery from 'jquery'
             **/
             _public.echo = function (out_str, no_scroll) {
                 if (out_str) {
-                    el.find('.content')
-                        .append('<div><div class="cmd_out">' + out_str + '</div></div>');
+                    const lines = out_str.split('\r\n');
+                    for (const line of lines) {
+                        el.find('.content').append('<div><div class="cmd_out">' + line + '</div></div>');
+                    }
                 }
                 if (!no_scroll) {
                     scroll_to_bottom();

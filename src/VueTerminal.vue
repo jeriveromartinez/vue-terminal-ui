@@ -29,16 +29,16 @@
             fullScreen: { type: Boolean, default: false },
             consoleSign: { type: String, default: '$' },
             write: { type: String, default: '' },
-            show:{type:Boolean, default:false}
+            show: { type: Boolean, default: false }
         },
         methods: {
             toggleWaiting() {
                 this.waiting = !this.waiting;
             },
-            toggleShow(){
+            toggleShow() {
                 this.show = !this.show;
             },
-            commandEmitter (commandText) {
+            commandEmitter(commandText) {
                 const prms = new Promise((resolve, reject) => {
                     const data = { text: commandText }
                     this.$emit('command', data, resolve, reject)
@@ -50,30 +50,21 @@
             },
 
             create() {
-            this.ptty = $('#terminal', '.vue-terminal-wrapper').Ptty({
-                i18n: { welcome: this.intro },
-                ps: this.consoleSign,
-                allowArbitrary: this.allowArbitrary,
-                passCommand: this.allowArbitrary ? this.commandEmitter : null
-            });
-
-            this.ptty.register('command', {
-                name: 'hello',
-                method: function (cmd) {
-                    cmd.out = 'Hello world!'
-                    return cmd
-                },
-                help: 'A demo command.'
-            });
-        }
+                this.ptty = $('#terminal', '.vue-terminal-wrapper').Ptty({
+                    i18n: { welcome: this.intro },
+                    ps: this.consoleSign,
+                    allowArbitrary: this.allowArbitrary,
+                    passCommand: this.allowArbitrary ? this.commandEmitter : null
+                });
+            }
         },
         watch: {
             write(value) {
                 if (this.ptty) this.ptty.echo(value);
             },
-            show(value){
-                if(value) this.create();
-                else this.ptty=null;
+            show(value) {
+                if (value) this.create();
+                else this.ptty = null;
             }
         }
     }
