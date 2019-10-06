@@ -60,7 +60,7 @@
         },
         watch: {
             write(value) {
-                if (this.ptty) this.ptty.echo(value);
+                if (value !== '' && this.ptty) this.ptty.echo(value);
             },
             show(value) {
                 if (value) this.create();
