@@ -65,6 +65,9 @@
             show(value) {
                 if (value) this.create();
                 else this.ptty = null;
+            },
+            consoleSign(value) {
+                this.ptty.change_settings({ ps: value });
             }
         }
     }
