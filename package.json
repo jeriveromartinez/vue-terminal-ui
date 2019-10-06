@@ -1,6 +1,6 @@
 {
   "name": "vue-terminal-unix",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "terminal UI for VueJs",
   "main": "index.js",
   "scripts": {
