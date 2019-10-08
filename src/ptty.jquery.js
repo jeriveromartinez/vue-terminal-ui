@@ -533,7 +533,7 @@ import jQuery from 'jquery'
                 if (typeof direct_cmd !== 'undefined') {
                     cmd = direct_cmd;
                 } else {
-                    cmd = input.text() || '\r';
+                    cmd = input.text() || ' ';
                 }
 
                 tab_comp = settings.autocomplete;
@@ -680,16 +680,20 @@ import jQuery from 'jquery'
                 var cmd_last = (!cmd_opts.last) ? '' : cmd_opts.last;
                 var cmd_next = (!cmd_opts.next) ? null : cmd_opts.next;
 
+                const lines = cmd_out.trim().replace(/ /g, '&nbsp;').split('\r\n');
                 if (!quiet) {
-                    // output
-                    content.append(
-                        '<div>' +
-                        '<div class="cmd_in"><span class="cmd_ps">' + input.attr('data-ps') + '</span>' + cmd_last + '</div>' +
-                        '<div class="cmd_out">' + cmd_out + '</div>' +
-                        '</div>'
-                    );
+                    let out = '<div><div class="cmd_in"><span class="cmd_ps">' + input.attr('data-ps') + '</span>' + cmd_last + '</div>';
+
+                    for (const line_out of lines)
+                        out += '<div class="cmd_out">' + line_out + '</div>'
+                    out += '</div>';
+                    content.append(out);
                 } else {
-                    content.append('<div><div class="cmd_out">' + cmd_out + '</div></div>');
+                    let out = '<div>';
+                    for (const line_out of lines)
+                        out += '<div class="cmd_out">' + line_out + '</div>';
+                    out += '</div>';
+                    content.append(out);
                 }
 
                 cmd_callback();
