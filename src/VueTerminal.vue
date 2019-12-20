@@ -31,6 +31,9 @@
             write: { type: String, default: '' },
             show: { type: Boolean, default: false }
         },
+        created() {
+            if (this.show) this.create();
+        },
         methods: {
             toggleWaiting() {
                 this.waiting = !this.waiting;
